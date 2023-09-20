@@ -1,12 +1,11 @@
 def jogar():
-
     import random
 
     print("*********************************")
     print("boas vindas ao jogo de advinhação")
     print("*********************************")
 
-    numero_secreto = round(random.randrange(0,101))
+    numero_secreto = round(random.randrange(0, 101))
     total_de_tentativas = 0
 
     print("qual o nivel de dificuldade voce quer?")
@@ -15,13 +14,13 @@ def jogar():
 
     if nivel == 1:
         total_de_tentativas = 20
-    elif nivel == 2 :
+    elif nivel == 2:
         total_de_tentativas = 10
     else:
         total_de_tentativas = 5
 
-    for rodada in range(1, total_de_tentativas +1):
-        print("tentativa {} de {} ".format(rodada,total_de_tentativas))
+    for rodada in range(1, total_de_tentativas + 1):
+        print("tentativa {} de {} ".format(rodada, total_de_tentativas))
         chute_str = input("digite o seu numero entre 1 a 100: ")
         print("voce digitou", chute_str)
 
@@ -43,6 +42,7 @@ def jogar():
                 print("voce errou! o seu numero foi menor!")
 
     print("fim de jogo")
+
 
 if __name__ == "__main__":
     jogar()
