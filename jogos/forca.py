@@ -6,99 +6,37 @@ def jogar():
     print("**boas vindas ao jogo da forca!**")
     print("*********************************")
 
-    palavras_faceis = [
-        "amor",
-        "fato",
-        "mito",
-        "caos",
-        "como",
-        "esmo",
-        "brio",
-        "vide",
-        "sede",
-        "pois",
-        "vida",
-        "casa",
-        "auge",
-        "saga",
-        "medo",
-        "suma",
-        "mote",
-        "idem",
-        "tolo",
-        "sina",
-        "urge",
-        "crer",
-        "pela",
-        "apto",
-        "zelo",
-        "veio",
-    ]
+    palavra = 'arnold schwarzenegger'
+    letras_acertadas = ''
+    tentativas = 0
+    while True:
 
-    palavras_medias = [
-        "exceto",
-        "mister",
-        "vereda",
-        "apogeu",
-        "utopia",
-        "escopo",
-        "idiota",
-        "casual",
-        "hostil",
-        "anseio",
-        "legado",
-        "pressa",
-        "gentil",
-        "alheio",
-        "nocivo",
-        "infame",
-        "exímio",
-        "adorno",
-        "defina",
-    ]
+        chute = input('digite uma letra ')
+        tentativas += 1
 
-    palavras_dificeis = [
-        "inerente",
-        "respeito",
-        "peculiar",
-        "denegrir",
-        "genocida",
-        "deferido",
-        "equidade",
-        "pandemia",
-        "iminente",
-        "desgraça",
-        "invasivo",
-        "alienado",
-        "eminente",
-        "abstrato",
-        "premissa",
-        "conceito",
-        "talarico",
-        "ardiloso",
-        "reiterar",
-        "rapariga",
-        "devaneio",
-        "prodígio",
-        "relativo",
-        "passível",
-        "conserto",
-    ]
+        if len(chute) > 1:
+            print('digite apenas uma letra')
+            print('suas tentativas ', tentativas)
+            continue
 
-    print("qual o nivel de dificuldade voce quer?")
-    print("(1)facil  (2)medio  (3)dificil ")
-    dificudade = int(input("dificuldade de nivel: "))
+        if chute in palavra:
+            letras_acertadas += chute
 
-    if dificudade == 1:
-        palavra = random.choice(palavras_faceis)
-        print("aqui esta a palavra", palavra)
-    elif dificudade == 2:
-        palavra = random.choice(palavras_medias)
-        print("aqui esta a palavra", palavra)
-    elif dificudade:
-        palavra = random.choice(palavras_dificeis)
-        print("aqui esta a palavra", palavra)
-    print("fim de jogo!")
+        palavra_formada = ''
+        for letras_secreta in palavra:
+            if letras_secreta in letras_acertadas:
+                palavra_formada += letras_secreta
+            else:
+                palavra_formada += '*'
+
+        print(palavra_formada)
+        if palavra_formada == palavra:
+            print('voce acertou ')
+            break
+
+        print('suas tentativas ', tentativas)
+
+    aa = 1
 
 
 if __name__ == "__main__":
